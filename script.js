@@ -14,10 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    operatorButtons.forEach((button) => {
+   operatorButtons.forEach((button) => {
         button.addEventListener("click", () => {
+            const lastChar = expression.slice(-1);
+            if (lastChar !== "+" && lastChar !== "-" && lastChar !== "*" && lastChar !== "/") {
             expression += button.getAttribute("data-operator");
             updateScreen();
+            }
         });
     });
 
