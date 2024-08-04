@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head> 
+<body>
+    <div class="calculator" aria-label="Calculator">
+        <div class="display">
+            <input type="text" id="display" disabled aria-live="polite" aria-label="Calculator display">
+        </div>
+        <div class="buttons">
+            <button class="btn operator" onclick="clearDisplay()" aria-label="Clear display">C</button>
+            <button class="btn" onclick="appendToDisplay('7')" aria-label="7">7</button>
+            <button class="btn" onclick="appendToDisplay('8')" aria-label="8">8</button>
+            <button class="btn" onclick="appendToDisplay('9')" aria-label="9">9</button>
+            <button class="btn operator" onclick="appendToDisplay('/')" aria-label="Divide">/</button>
+            
+            <button class="btn" onclick="appendToDisplay('4')" aria-label="4">4</button>
+            <button class="btn" onclick="appendToDisplay('5')" aria-label="5">5</button>
+            <button class="btn" onclick="appendToDisplay('6')" aria-label="6">6</button>
+            <button class="btn operator" onclick="appendToDisplay('*')" aria-label="Multiply">*</button>
+            
+            <button class="btn" onclick="appendToDisplay('1')" aria-label="1">1</button>
+            <button class="btn" onclick="appendToDisplay('2')" aria-label="2">2</button>
+            <button class="btn" onclick="appendToDisplay('3')" aria-label="3">3</button>
+            <button class="btn operator" onclick="appendToDisplay('-')" aria-label="Subtract">-</button>
+            <button class="btn operator" onclick="appendToDisplay('+')" aria-label="Add">+</button>
+            
+            <button class="btn" onclick="appendToDisplay('0')" aria-label="0">0</button>
+            <button class="btn" onclick="appendToDisplay('.')" aria-label="Decimal">.</button>
+            <button class="btn equal" onclick="calculateResult()" aria-label="Equals">=</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

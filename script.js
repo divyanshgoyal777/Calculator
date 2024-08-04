@@ -1,49 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const screen = document.querySelector(".screen");
-    const numberButtons = document.querySelectorAll(".number");
-    const operatorButtons = document.querySelectorAll(".operator");
-    const calculateButton = document.querySelector(".calculate");
-    const clear = document.querySelector(".clear")
+function clearDisplay() {
+    document.getElementById("display").value = "";
+}
 
-    let expression = "";
+function appendToDisplay(value) {
+    document.getElementById("display").value += value;
+}
 
-    numberButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            expression += button.innerText;
-            updateScreen();
-        });
-    });
-
-   operatorButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const lastChar = expression.slice(-1);
-            if (lastChar !== "+" && lastChar !== "-" && lastChar !== "*" && lastChar !== "/") {
-            expression += button.getAttribute("data-operator");
-            updateScreen();
-            }
-        });
-    });
-
-    calculateButton.addEventListener("click", () => {
-        try {
-            expression = eval(expression);
-            updateScreen();
-        } catch (error) {
-            screen.innerText = "Error";
-            setTimeout(clearScreen, 1000);
-        }
-    });
-
-    function updateScreen() {
-        screen.innerText = expression;
+function calculateResult() {
+    try {
+        let result = eval(document.getElementById("display").value);
+        document.getElementById("display").value = result;
+    } catch (e) {
+        document.getElementById("display").value = "Error";
     }
-
-    function clearScreen() {
-        expression = "";
-        updateScreen();
-    }
-
-    clear.addEventListener("click", ()=>{
-        clearScreen();
-    })
-});
+}
